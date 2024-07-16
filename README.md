@@ -3,4 +3,5 @@
 
 ## Dependencias
 
-GluestackUI
+- GluestackUI  
+- Expo-Google-Fonts
