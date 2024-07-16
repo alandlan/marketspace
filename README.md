@@ -1,1 +1,6 @@
 # Marketspace
+
+
+## Dependencias
+
+GluestackUI
