@@ -1,5 +1,5 @@
 import { GluestackUIProvider, Text, Box, Center } from '@gluestack-ui/themed';
-import { config } from './config/gluestack-ui.config'; // Optional if you want to use default theme
+import { config } from './config/gluestack-ui.config';
 
 export default function App() {
   return (
