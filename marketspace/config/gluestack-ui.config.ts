@@ -27,6 +27,17 @@ export const gluestackUIConfig = createConfig({
   } as const,
   tokens: {
     colors: {
+      produtoBlue: '#364D9D',
+      produtoBlueLight: '#647AC7',
+      produtoRedLight: '#EE7979', 
+      baseGray1: '#1A181B',
+      baseGray2: '#3E3A40',
+      baseGray3: '#5F5B62',
+      baseGray4: '#9F9BA1',
+      baseGray5: '#D9D8DA',
+      baseGray6: '#EDECEE',
+      baseGray7: '#F7F7F8',
+
       rose50: '#fff1f2',
       rose100: '#ffe4e6',
       rose200: '#fecdd3',
