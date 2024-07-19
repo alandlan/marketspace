@@ -5,7 +5,7 @@ import { TextInputProps } from 'react-native';
 export interface InputCustomProps extends TextInputProps {
     placeholder: string;
     type?: "text" | "password";
-    keyboardType?: "default" | "email-address";
+    keyboardType?: "default" | "email-address" | "phone-pad";
 }
 
 export function InputCustom({ placeholder, type = "text", keyboardType = "default",...rest }: InputCustomProps) {
@@ -25,6 +25,8 @@ export function InputCustom({ placeholder, type = "text", keyboardType = "defaul
               h={52}
               px={16}
               mb={16}
+              borderRadius={8}
+              borderWidth={0}
             >
                 <InputField
                     placeholder={placeholder}
