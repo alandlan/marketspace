@@ -4,10 +4,18 @@ import { InputCustom } from "@components/InputCustom";
 import LogoImage from '@assets/logo.svg';
 import { ButtonCustom } from "@components/ButtonCustom";
 import { Dimensions } from "react-native";
+import { AuthNavigationProps } from "src/routes/auth.routes";
+import { useNavigation } from "@react-navigation/native";
 
 
 export function SignIn(){
     const tenPercentHeight = (Dimensions.get('screen').height) * 0.1;
+
+    const navigation = useNavigation<AuthNavigationProps>();
+
+    function handleCreateAccount(){
+        navigation.navigate('signUp');
+    }
 
     return (
         
@@ -30,7 +38,7 @@ export function SignIn(){
             <View mt={tenPercentHeight} px={42}>
                 <Center>
                     <Text fontSize={"$md"} mb={10}>Ainda não tem uma conta?</Text>
-                    <ButtonCustom title="Criar uma conta" variant="secondary" />
+                    <ButtonCustom title="Criar uma conta" variant="secondary" onPress={handleCreateAccount} />
                 </Center>
             </View>
             
