@@ -6,6 +6,7 @@ import { ButtonCustom } from "@components/ButtonCustom";
 import { Dimensions } from "react-native";
 import { AuthNavigationProps } from "src/routes/auth.routes";
 import { useNavigation } from "@react-navigation/native";
+import { AppNavigatorRoutesProps } from "src/routes/app.routes";
 
 
 export function SignIn(){
@@ -13,8 +14,14 @@ export function SignIn(){
 
     const navigation = useNavigation<AuthNavigationProps>();
 
+    const appNavigation = useNavigation<AppNavigatorRoutesProps>();
+
     function handleCreateAccount(){
         navigation.navigate('signUp');
+    }
+
+    function handleSignIn(){
+        appNavigation.navigate('Home');
     }
 
     return (
