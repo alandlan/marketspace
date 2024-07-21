@@ -7,6 +7,7 @@ import { Dimensions } from "react-native";
 import { AuthNavigationProps } from "src/routes/auth.routes";
 import { useNavigation } from "@react-navigation/native";
 import { AppNavigatorRoutesProps } from "src/routes/app.routes";
+import { useAuth } from "src/hook/useAuth";
 
 
 export function SignIn(){
@@ -14,14 +15,14 @@ export function SignIn(){
 
     const navigation = useNavigation<AuthNavigationProps>();
 
-    const appNavigation = useNavigation<AppNavigatorRoutesProps>();
+    const {signIn} = useAuth();
 
     function handleCreateAccount(){
         navigation.navigate('signUp');
     }
 
-    function handleSignIn(){
-        appNavigation.navigate('Home');
+    async function handleSignIn(){
+        await signIn("teste@gmail.com","123456");
     }
 
     return (
@@ -38,7 +39,7 @@ export function SignIn(){
                     <Text fontSize={"$md"} mb={10}>Acesse sua conta</Text>
                     <InputCustom placeholder="E-mail" keyboardType="email-address" />
                     <InputCustom placeholder="Senha" type="password"/>
-                    <ButtonCustom title="Entrar" variant="primary"  />
+                    <ButtonCustom title="Entrar" variant="primary" onPress={handleSignIn}  />
                 </Center>
             </View>
 

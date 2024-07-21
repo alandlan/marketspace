@@ -6,6 +6,8 @@ import { Announcements } from "@screens/Announcements"
 import { SignIn } from "@screens/SignIn";
 
 import {House,Tag,SignOut} from 'phosphor-react-native';
+import { TouchableOpacity } from "react-native";
+import { useAuth } from "src/hook/useAuth";
 
 type AppRoutesProps = {
     Home: undefined,
@@ -17,8 +19,19 @@ export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutesProps>;
 const {Navigator,Screen} = createBottomTabNavigator();
 
 export function AppRoutes(){
+
+    const {signOut} = useAuth();
+
+    async function handleSignOut(){
+        await signOut();
+    }
+
     return (
-        <Navigator>
+        <Navigator
+            screenOptions={{
+                headerShown: false
+            }}
+        >
             <Screen name="Home" 
                     component={Home} 
                     options={{
@@ -36,13 +49,18 @@ export function AppRoutes(){
                     }}
             />
             <Screen name="Exit"
-                    component={SignIn}
+                    // component={SignIn}
                     options={{
                         tabBarIcon: ({color,size}) => (
                             <SignOut color={color} size={size} />
-                        )
+                        ),
+                        tabBarButton: (props) => (
+                            <TouchableOpacity {...props} onPress={handleSignOut} />
+                        ),
                     }}
-            />
+            >
+                {() => null}
+            </Screen>
 
         </Navigator>
     )
