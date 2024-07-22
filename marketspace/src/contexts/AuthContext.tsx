@@ -19,14 +19,17 @@ export function AuthContextProvider({children}: AuthContextProviderProps){
     const [user, setUser] = useState<UserDTO>({} as UserDTO)
 
     async function signIn(email: string, password: string){
+        const name = "Teste";
 
         await storageSaveUser({
             email,
+            name,
             password
         });
 
         setUser({
             email,
+            name,
             password
         });
 

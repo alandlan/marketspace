@@ -1,4 +1,4 @@
-import { Button,ButtonText,ButtonSpinner, ButtonGroup } from "@gluestack-ui/themed"
+import { Button,ButtonText,ButtonSpinner, ButtonGroup,ButtonIcon,View, HStack } from "@gluestack-ui/themed"
 import {PressableProps} from 'react-native';
 
 type ButtonCustomProps = PressableProps & {
@@ -25,12 +25,15 @@ export function ButtonCustom({title,icon,variant = "primary", isLoading = false,
 
                 {isLoading ? (
                     <ButtonSpinner mr={"$1"} />
-                ):(
-                    <ButtonText
-                        color={variant === "secondary" ? "$black" : "$white"}
-                    >
-                        {title}
-                    </ButtonText>
+                ):( 
+                    <HStack gap={5}>
+                        { icon && <ButtonIcon as={icon} /> }
+                        <ButtonText
+                            color={variant === "secondary" ? "$black" : "$white"}
+                        >
+                            {title}
+                        </ButtonText>
+                    </HStack>
                 )}
                 
             </Button>

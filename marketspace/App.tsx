@@ -1,4 +1,4 @@
-import { GluestackUIProvider, Text, Box, Center } from '@gluestack-ui/themed';
+import { GluestackUIProvider, Text, Box, Center, StatusBar } from '@gluestack-ui/themed';
 import { Karla_400Regular, Karla_700Bold } from '@expo-google-fonts/karla';
 import { useFonts } from 'expo-font';
 
@@ -12,15 +12,16 @@ export default function App() {
 
   return (
     <GluestackUIProvider config={config}>
-      <AuthContextProvider>
-        {fontsLoaded ? (
-          <Routes />
-        ) : (
-          <Center flex={1}>
-            <Text>Loading...</Text>
-          </Center>
-        )}
-      </AuthContextProvider>
+        <AuthContextProvider>
+          {fontsLoaded ? (
+            <Routes />
+          ) : (
+            <Center flex={1}>
+              <Text>Loading...</Text>
+            </Center>
+          )}
+        </AuthContextProvider>
+      
     </GluestackUIProvider>
   );
 }
