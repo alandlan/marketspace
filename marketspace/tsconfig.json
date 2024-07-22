@@ -11,7 +11,11 @@
       "@utils/*": ["src/utils/*"],
       "@assets/*": ["src/assets/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@types/*": ["./src/@types/*"] ,
+      "@types/*": ["./src/@types/*"],
+      "@dtos/*": ["./src/dtos/*"],
+      "@storage/*": ["./src/storage/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@routes/*": ["./src/routes/*"],
     }
   }
 }

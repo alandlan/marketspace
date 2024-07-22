@@ -1,7 +1,5 @@
 import { Header } from "@components/Header";
-import { Center,Text, View, VStack } from "@gluestack-ui/themed";
-
-
+import { Text, VStack } from "@gluestack-ui/themed";
 
 export function Home(){
     return (

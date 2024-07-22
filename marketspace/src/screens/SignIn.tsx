@@ -1,13 +1,12 @@
-import { Center, Heading, ScrollView, Text, View, VStack } from "@gluestack-ui/themed";
+import { Center, Heading, ScrollView, Text, View } from "@gluestack-ui/themed";
 import { InputCustom } from "@components/InputCustom";
 
 import LogoImage from '@assets/logo.svg';
 import { ButtonCustom } from "@components/ButtonCustom";
 import { Dimensions } from "react-native";
-import { AuthNavigationProps } from "src/routes/auth.routes";
+import { AuthNavigationProps } from "@routes/auth.routes";
 import { useNavigation } from "@react-navigation/native";
-import { AppNavigatorRoutesProps } from "src/routes/app.routes";
-import { useAuth } from "src/hook/useAuth";
+import { useAuth } from "@hooks/useAuth";
 
 
 export function SignIn(){

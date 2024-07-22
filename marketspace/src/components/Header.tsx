@@ -1,9 +1,8 @@
-import { HStack, AddIcon, VStack, Heading,Text, View, Icon } from "@gluestack-ui/themed";
+import { HStack, AddIcon, VStack, Heading,Text } from "@gluestack-ui/themed";
 import { ButtonCustom } from "./ButtonCustom";
 import { ImageUser } from "./ImageUser";
-import { useAuth } from "src/hook/useAuth";
+import { useAuth } from "@hooks/useAuth";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TouchableOpacity } from "react-native";
 
 export function Header(){
     const { user } = useAuth();

@@ -6,7 +6,7 @@ import { InputCustom } from "@components/InputCustom";
 import { ButtonCustom } from "@components/ButtonCustom";
 
 import {PencilSimpleLine} from 'phosphor-react-native';
-import { AuthNavigationProps } from "src/routes/auth.routes";
+import { AuthNavigationProps } from "@routes/auth.routes";
 import { useNavigation } from "@react-navigation/native";
 
 export function SignUp(){

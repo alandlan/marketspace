@@ -1,4 +1,4 @@
-import { Button,ButtonText,ButtonSpinner, ButtonGroup,ButtonIcon,View, HStack } from "@gluestack-ui/themed"
+import { Button,ButtonText,ButtonSpinner, ButtonGroup,ButtonIcon,HStack } from "@gluestack-ui/themed"
 import {PressableProps} from 'react-native';
 
 type ButtonCustomProps = PressableProps & {

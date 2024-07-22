@@ -1,7 +1,7 @@
 
 import { createContext, useEffect, useState } from "react";
-import { UserDTO } from "src/dtos/UserDto";
-import { storageDeleteUser, storageLoadUser, storageSaveUser } from "src/storage/storageUser";
+import { UserDTO } from "@dtos/UserDto";
+import { storageDeleteUser, storageLoadUser, storageSaveUser } from "@storage/storageUser";
 
 export type AuthContextDataProps = {
     signIn: (email: string,password: string) => Promise<void>;

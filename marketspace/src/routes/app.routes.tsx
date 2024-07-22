@@ -3,11 +3,10 @@ import { BottomTabNavigationProp, createBottomTabNavigator } from "@react-naviga
 
 import { Home } from "@screens/Home"
 import { Announcements } from "@screens/Announcements"
-import { SignIn } from "@screens/SignIn";
 
 import {House,Tag,SignOut} from 'phosphor-react-native';
 import { TouchableOpacity } from "react-native";
-import { useAuth } from "src/hook/useAuth";
+import { useAuth } from "@hooks/useAuth";
 
 type AppRoutesProps = {
     Home: undefined,
@@ -49,7 +48,6 @@ export function AppRoutes(){
                     }}
             />
             <Screen name="Exit"
-                    // component={SignIn}
                     options={{
                         tabBarIcon: ({color,size}) => (
                             <SignOut color={color} size={size} />
