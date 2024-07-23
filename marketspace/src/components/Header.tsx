@@ -7,11 +7,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export function Header(){
     const { user } = useAuth();
 
-    console.log(user);
-
     return (
         <SafeAreaView>
-            <HStack mt={30} mb={10} gap={20} alignItems="center">
+            <HStack mt={30} mb={30} gap={20} alignItems="center">
                 <HStack flex={1} alignItems="center" gap={5}>
                     <ImageUser
                         size={40}
