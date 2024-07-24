@@ -1,16 +1,24 @@
+import { ButtonCustom } from "@components/ButtonCustom";
 import { Header } from "@components/Header";
-import { FormControl, Heading, HStack, InputField, Text, VStack,InputIcon,InputSlot,Input } from "@gluestack-ui/themed";
-import { ArrowRight, MagnifyingGlass, Sliders, Tag } from "phosphor-react-native";
+import { FormControl, Heading, HStack, InputField, Text, VStack,InputIcon,InputSlot,Input,View } from "@gluestack-ui/themed";
+import { ArrowRight, MagnifyingGlass, Sliders, Tag, X } from "phosphor-react-native";
+import { useState } from "react";
 import { TouchableOpacity } from "react-native";
+import Modal from "react-native-modal";
 
 export function Home(){
+    const [showModal, setShowModal] = useState(false);
 
     function handleSearch(){
         console.log("Buscando produtos");
     }
 
     function handleModalIn(){
-        console.log("Abrindo modal");
+        setShowModal(true);
+    }
+
+    function handleModalOut(){
+        setShowModal(false);
     }
 
     return (
@@ -67,6 +75,29 @@ export function Home(){
                 </Input>
                    
             </FormControl> 
+            <Modal 
+                isVisible={showModal} 
+                hasBackdrop={false}
+                animationOutTiming={500}
+                style={{margin: 0,justifyContent:"flex-end"}}
+            >
+                <View bg={"white"} borderRadius={10} px={20} py={40}>
+                    <HStack justifyContent="space-between" mb={20}>
+                        <Heading fontSize={"$lg"}>Test</Heading>
+                        <TouchableOpacity onPress={handleModalOut}>
+                            <X size={20} color={"#364D9D"} />
+                        </TouchableOpacity>
+                    </HStack>
+                    <HStack gap={10}>
+                        <View flex={1}>
+                            <ButtonCustom variant="secondary" title="Resetar filtros" />
+                        </View>
+                        <View flex={1}>
+                            <ButtonCustom variant="tertiary" title="Aplicar filtros" />
+                        </View>
+                    </HStack>
+                </View>
+            </Modal>
         </VStack>
     )
 }
