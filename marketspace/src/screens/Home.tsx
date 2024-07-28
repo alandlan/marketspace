@@ -1,8 +1,8 @@
 import { Header } from "@components/Header";
 import { InputSearch } from "@components/InputSearch";
-import { Heading, HStack, Text, VStack } from "@gluestack-ui/themed";
+import { ProductCard } from "@components/ProductCard";
+import { Heading, HStack, Text, VStack, View, Box } from "@gluestack-ui/themed";
 import { ArrowRight, Tag } from "phosphor-react-native";
-import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 
 export function Home(){
@@ -30,6 +30,13 @@ export function Home(){
             
             <Text fontSize={"$sm"} mb={10}>Compre produtos variados</Text>
             <InputSearch />
+
+                <HStack mt={10} justifyContent="space-between" gap={10} flexWrap={"wrap"}>
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                </HStack>
+            
 
         </VStack>
     )

@@ -14,6 +14,7 @@ export function ImageUser({size, ...props}: ImageUserProps){
             borderWidth={4}
             borderColor={"$produtoBlue"}
             alt='User Profile'
+            source={{}}
             {...props} 
         />
     )

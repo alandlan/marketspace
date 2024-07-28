@@ -20,17 +20,20 @@ export function AuthContextProvider({children}: AuthContextProviderProps){
 
     async function signIn(email: string, password: string){
         const name = "Teste";
+        const image = "https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg";
 
         await storageSaveUser({
             email,
             name,
-            password
+            password,
+            image
         });
 
         setUser({
             email,
             name,
-            password
+            password,
+            image
         });
 
         console.log('Sign in');
