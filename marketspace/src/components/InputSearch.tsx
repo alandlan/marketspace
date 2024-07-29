@@ -3,16 +3,20 @@ import { MagnifyingGlass, Sliders, X } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import { ButtonCustom } from "./ButtonCustom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Badge } from "./Badge";
+import { useFilter } from "@hooks/useFilter";
+import { FilterProductDto } from "@dtos/FilterProductDto";
 
 
 
 export function InputSearch(){
-
     const [showModal, setShowModal] = useState(false);
-    const [replace, setReplace] = useState(false);
-    const [payments, setPayments] = useState(["Boleto","Pix","Dinheiro","Cartão de Crédito","Cartão de Débito"]);
+
+    const [newFilter, setNewFilterProduct] = useState({} as FilterProductDto);
+    const {filter, setFilterProduct} = useFilter();
+
+    //const [payment, setPayment] = useState<string[]>(filter.pagamento || []);
 
     function handleSearch(){
         console.log("Buscando produtos");
@@ -25,6 +29,41 @@ export function InputSearch(){
     function handleModalOut(){
         setShowModal(false);
     }
+
+    function handleFilterNew(){
+        setNewFilterProduct({...newFilter, novo: !newFilter.novo});
+    }
+
+    function handleFilterUsed(){
+        setNewFilterProduct({...newFilter, usado: !newFilter.usado});
+    }
+
+    function handleFilterReplace(){
+        setNewFilterProduct({...newFilter, troca: !newFilter.troca});
+    }
+
+    function handleFilterPayment(keys: string[]){
+        setNewFilterProduct({...newFilter, pagamento: keys});
+    }
+
+    async function handleFilter(){
+        console.log(newFilter);
+        // setNewFilterProduct({...newFilter, pagamento: payment});
+        await setFilterProduct(newFilter);
+        setShowModal(false);
+    }
+
+    async function handleResetFilter(){
+        // setPayment([]);
+        await setFilterProduct({} as FilterProductDto);
+        setNewFilterProduct({} as FilterProductDto);
+    }
+
+    useEffect(() => {
+        console.log(filter);
+        // setPayment(filter.pagamento || []);
+        setNewFilterProduct(filter);
+    },[]);
 
     return (
         <>
@@ -76,21 +115,19 @@ export function InputSearch(){
                             </TouchableOpacity>
                         </HStack>
 
-
-
                         <Heading fontSize={"$sm"} mb={5}>Condição</Heading>
                         <HStack gap={5} mb={20}>
-                            <Badge text="Novo" active />
-                            <Badge text="Usado" />
+                            <Badge text="Novo" active={newFilter.novo} onPress={() => handleFilterNew()} />
+                            <Badge text="Usado" active={newFilter.usado} onPress={() => handleFilterUsed()} />
                         </HStack>
 
                         <Heading fontSize={"$sm"} mb={5}>Aceita troca?</Heading>
                         <HStack mb={20}>
-                            <Switch size="lg" value={replace} onToggle={() => setReplace(!replace)} />
+                            <Switch size="lg" value={newFilter.troca} onToggle={() => handleFilterReplace()} />
                         </HStack>
 
                         <Heading fontSize={"$sm"} mb={5}>Meios de Pagamento</Heading>
-                        <CheckboxGroup value={payments} onChange={(keys) => setPayments(keys)} mb={40}>
+                        <CheckboxGroup value={newFilter.pagamento} onChange={(keys) => handleFilterPayment(keys)} mb={40}>
                             <VStack gap={10} space="md">
                                 <Checkbox aria-label="boleto" value="Boleto" >
                                     <CheckboxIndicator mr="$2">
@@ -128,10 +165,10 @@ export function InputSearch(){
 
                         <HStack gap={10}>
                             <View flex={1}>
-                                <ButtonCustom variant="secondary" title="Resetar filtros" />
+                                <ButtonCustom variant="secondary" title="Resetar filtros" onPress={() => handleResetFilter()} />
                             </View>
                             <View flex={1}>
-                                <ButtonCustom variant="tertiary" title="Aplicar filtros" />
+                                <ButtonCustom variant="tertiary" title="Aplicar filtros" onPress={() => handleFilter()}/>
                             </View>
                         </HStack>
 

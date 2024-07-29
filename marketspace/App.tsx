@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font';
 import { config } from './config/gluestack-ui.config';
 import { Routes } from './src/routes';
 import { AuthContextProvider } from 'src/contexts/AuthContext';
+import { FilterProductContextProvider } from '@contexts/FilterProductContext';
 
 export default function App() {
 
@@ -13,13 +14,15 @@ export default function App() {
   return (
     <GluestackUIProvider config={config}>
         <AuthContextProvider>
-          {fontsLoaded ? (
-            <Routes />
-          ) : (
-            <Center flex={1}>
-              <Text>Loading...</Text>
-            </Center>
-          )}
+          <FilterProductContextProvider>
+            {fontsLoaded ? (
+              <Routes />
+            ) : (
+              <Center flex={1}>
+                <Text>Loading...</Text>
+              </Center>
+            )}
+          </FilterProductContextProvider>
         </AuthContextProvider>
       
     </GluestackUIProvider>
