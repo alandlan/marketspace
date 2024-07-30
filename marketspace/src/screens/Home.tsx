@@ -1,11 +1,18 @@
 import { Header } from "@components/Header";
 import { InputSearch } from "@components/InputSearch";
 import { ProductCard } from "@components/ProductCard";
-import { Heading, HStack, Text, VStack, View, Box } from "@gluestack-ui/themed";
+import { Heading, HStack, Text, VStack, View, Box, Pressable } from "@gluestack-ui/themed";
+import { useNavigation } from "@react-navigation/native";
+import { AppNavigatorRoutesProps } from "@routes/app.routes";
 import { ArrowRight, Tag } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
 
 export function Home(){
+    const navigation = useNavigation<AppNavigatorRoutesProps>();
+
+    function handleOpenExercise() {
+        navigation.navigate("Add");
+    }
 
     return (
         <VStack flex={1} px={20}>
@@ -32,11 +39,16 @@ export function Home(){
             <InputSearch />
 
                 <HStack mt={10} justifyContent="space-between" gap={10} flexWrap={"wrap"}>
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
+                    <Pressable onPress={() => handleOpenExercise()}>
+                        <ProductCard />
+                    </Pressable>
+                    <Pressable onPress={() => handleOpenExercise()}>
+                        <ProductCard />
+                    </Pressable>
+                    <Pressable onPress={() => handleOpenExercise()}>
+                        <ProductCard />
+                    </Pressable>
                 </HStack>
-            
 
         </VStack>
     )

@@ -2,15 +2,17 @@
 import { BottomTabNavigationProp, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Home } from "@screens/Home"
-import { Announcements } from "@screens/Announcements"
+import { MyAdds } from "@screens/MyAdds"
 
 import {House,Tag,SignOut} from 'phosphor-react-native';
 import { TouchableOpacity } from "react-native";
 import { useAuth } from "@hooks/useAuth";
+import { Add } from "@screens/Add";
+import { config } from "config/gluestack-ui.config";
 
 type AppRoutesProps = {
     Home: undefined,
-    Announcements: undefined,
+    Add: undefined,
 }
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutesProps>;
@@ -28,7 +30,13 @@ export function AppRoutes(){
     return (
         <Navigator
             screenOptions={{
-                headerShown: false
+                headerShown: false,
+                tabBarShowLabel: false,
+                tabBarActiveTintColor: config.tokens.colors.produtoBlue,
+                tabBarInactiveTintColor: config.tokens.colors.baseGray2,
+                tabBarStyle: {
+                    backgroundColor: config.tokens.colors.baseGray6,
+                }
             }}
         >
             <Screen name="Home" 
@@ -40,7 +48,7 @@ export function AppRoutes(){
                     }}
             />
             <Screen name="Announcements" 
-                    component={Announcements} 
+                    component={MyAdds} 
                     options={{
                         tabBarIcon: ({color,size}) => (
                             <Tag color={color} size={size} />
@@ -59,6 +67,15 @@ export function AppRoutes(){
             >
                 {() => null}
             </Screen>
+            <Screen name="Add" 
+                    component={Add}
+                    options={{
+                        tabBarStyle:{
+                            display: "none"
+                        },
+                        tabBarButton: () => null
+                    }} 
+            />
 
         </Navigator>
     )
