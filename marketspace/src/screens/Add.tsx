@@ -3,22 +3,24 @@ import { ButtonCustom } from "@components/ButtonCustom";
 import { ImageUser } from "@components/ImageUser";
 import { Heading, HStack, Image, Pressable, ScrollView, Text, View, VStack } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
-import { AppNavigatorRoutesProps } from "@routes/app.routes";
+import { AppStackNavigatorRoutesProps } from "@routes/app.routes";
 import { ArrowLeft, Barcode, CreditCard, Money, QrCode, WhatsappLogo } from "phosphor-react-native";
 
 
 
 export function Add(){
-    const navigation = useNavigation<AppNavigatorRoutesProps>();
+    const navigation = useNavigation<AppStackNavigatorRoutesProps>();
 
     function handleGoBack() {
+
         navigation.goBack();
+        return true;
     }
 
     return (
         <View flex={1} p={20}>
-            <View h={30} mt={20} mb={10}>
-                <Pressable onPress={() => handleGoBack()}>
+            <View h={30} mt={30} mb={10}>
+                <Pressable onPress={() => { handleGoBack() }}>
                     <ArrowLeft />
                 </Pressable>
             </View>

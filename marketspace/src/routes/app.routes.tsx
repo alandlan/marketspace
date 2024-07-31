@@ -1,6 +1,11 @@
 
 import { BottomTabNavigationProp, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+import {
+	createStackNavigator,
+	StackNavigationProp,
+} from '@react-navigation/stack';
+
 import { Home } from "@screens/Home"
 import { MyAdds } from "@screens/MyAdds"
 
@@ -13,13 +18,23 @@ import { config } from "config/gluestack-ui.config";
 type AppRoutesProps = {
     Home: undefined,
     Add: undefined,
+    MyAdds: undefined,
+    Exit: undefined
 }
 
+type StackAppRoutes = {
+	main: undefined;
+	detailAd: undefined;
+};
+
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutesProps>;
+export type AppStackNavigatorRoutesProps = StackNavigationProp<StackAppRoutes>;
 
-const {Navigator,Screen} = createBottomTabNavigator();
+const {Navigator,Screen} = createBottomTabNavigator<AppRoutesProps>();
 
-export function AppRoutes(){
+const Stack = createStackNavigator<StackAppRoutes>();
+
+function TabRoutes(){
 
     const {signOut} = useAuth();
 
@@ -47,7 +62,7 @@ export function AppRoutes(){
                         )
                     }}
             />
-            <Screen name="Announcements" 
+            <Screen name="MyAdds" 
                     component={MyAdds} 
                     options={{
                         tabBarIcon: ({color,size}) => (
@@ -67,6 +82,7 @@ export function AppRoutes(){
             >
                 {() => null}
             </Screen>
+
             <Screen name="Add" 
                     component={Add}
                     options={{
@@ -76,7 +92,17 @@ export function AppRoutes(){
                         tabBarButton: () => null
                     }} 
             />
+            
 
         </Navigator>
     )
+}
+
+export function AppRoutes() {
+	return (
+		<Stack.Navigator screenOptions={{ headerShown: false }}>
+			<Stack.Screen name="main" component={TabRoutes} />
+			<Stack.Screen name="detailAd" component={Add} />
+		</Stack.Navigator>
+	);
 }
