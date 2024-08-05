@@ -2,9 +2,9 @@ import { ProductCard } from '@components/ProductCard';
 import { SelectItem,SelectDragIndicator,SelectDragIndicatorWrapper,SelectContent,SelectBackdrop,SelectPortal, ChevronDownIcon, Heading, HStack, Icon, Pressable, Select, SelectIcon, SelectInput, SelectTrigger, Text, View, ScrollView } from '@gluestack-ui/themed';
 import { Plus } from 'phosphor-react-native';
 import { useNavigation } from "@react-navigation/native";
-import { AppNavigatorRoutesProps } from "@routes/app.routes";
+import { AppStackNavigatorRoutesProps } from "@routes/app.routes";
 
-export function MyAdds(){
+export function MyAds(){
     const navigation = useNavigation<AppStackNavigatorRoutesProps>();
 
     function handleCreateAd(){
@@ -13,7 +13,7 @@ export function MyAdds(){
 
     function handleOpenExercise() {
 
-        navigation.navigate("detailAd");
+        navigation.navigate("Ad");
         return true;
     }
 

@@ -7,24 +7,24 @@ import {
 } from '@react-navigation/stack';
 
 import { Home } from "@screens/Home"
-import { MyAdds } from "@screens/MyAdds"
+import { MyAds } from "@screens/MyAds"
 
 import {House,Tag,SignOut} from 'phosphor-react-native';
 import { TouchableOpacity } from "react-native";
 import { useAuth } from "@hooks/useAuth";
-import { Add } from "@screens/Add";
+import { Ad } from "@screens/Ad";
 import { config } from "config/gluestack-ui.config";
 
 type AppRoutesProps = {
     Home: undefined,
-    Add: undefined,
-    MyAdds: undefined,
+    Ad: undefined,
+    MyAds: undefined,
     Exit: undefined
 }
 
 type StackAppRoutes = {
-	main: undefined;
-	detailAd: undefined;
+	Main: undefined;
+	Ad: undefined;
 };
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutesProps>;
@@ -62,8 +62,8 @@ function TabRoutes(){
                         )
                     }}
             />
-            <Screen name="MyAdds" 
-                    component={MyAdds} 
+            <Screen name="MyAds" 
+                    component={MyAds} 
                     options={{
                         tabBarIcon: ({color,size}) => (
                             <Tag color={color} size={size} />
@@ -83,8 +83,8 @@ function TabRoutes(){
                 {() => null}
             </Screen>
 
-            <Screen name="Add" 
-                    component={Add}
+            <Screen name="Ad" 
+                    component={Ad}
                     options={{
                         tabBarStyle:{
                             display: "none"
@@ -101,8 +101,8 @@ function TabRoutes(){
 export function AppRoutes() {
 	return (
 		<Stack.Navigator screenOptions={{ headerShown: false }}>
-			<Stack.Screen name="main" component={TabRoutes} />
-			<Stack.Screen name="detailAd" component={Add} />
+			<Stack.Screen name="Main" component={TabRoutes} />
+			<Stack.Screen name="Ad" component={Ad} />
 		</Stack.Navigator>
 	);
 }

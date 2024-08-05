@@ -8,7 +8,7 @@ import { ArrowLeft, Barcode, CreditCard, Money, QrCode, WhatsappLogo } from "pho
 
 
 
-export function Add(){
+export function Ad(){
     const navigation = useNavigation<AppStackNavigatorRoutesProps>();
 
     function handleGoBack() {
