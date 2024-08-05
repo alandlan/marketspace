@@ -24,7 +24,7 @@ type AppRoutesProps = {
 
 type StackAppRoutes = {
 	Main: undefined;
-	Ad: undefined;
+	DetailsAd: undefined;
 };
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutesProps>;
@@ -102,7 +102,7 @@ export function AppRoutes() {
 	return (
 		<Stack.Navigator screenOptions={{ headerShown: false }}>
 			<Stack.Screen name="Main" component={TabRoutes} />
-			<Stack.Screen name="Ad" component={Ad} />
+			<Stack.Screen name="DetailsAd" component={Ad} />
 		</Stack.Navigator>
 	);
 }

@@ -3,7 +3,7 @@ import { InputSearch } from "@components/InputSearch";
 import { ProductCard } from "@components/ProductCard";
 import { Heading, HStack, Text, VStack, View, Box, Pressable } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
-import { AppNavigatorRoutesProps, AppStackNavigatorRoutesProps } from "@routes/app.routes";
+import { AppNavigatorRoutesProps } from "@routes/app.routes";
 import { ArrowRight, Tag } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
 

@@ -14,7 +14,6 @@ export function Ad(){
     function handleGoBack() {
 
         navigation.goBack();
-        return true;
     }
 
     return (

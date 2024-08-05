@@ -13,7 +13,7 @@ export function MyAds(){
 
     function handleOpenExercise() {
 
-        navigation.navigate("Ad");
+        navigation.navigate("DetailsAd");
         return true;
     }
 
