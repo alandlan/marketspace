@@ -11,7 +11,7 @@ export function Home(){
     const navigation = useNavigation<AppNavigatorRoutesProps>();
 
     function handleOpenExercise() {
-        navigation.navigate("Add");
+        navigation.navigate("Ad");
     }
 
     return (
