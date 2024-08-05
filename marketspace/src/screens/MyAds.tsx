@@ -8,7 +8,8 @@ export function MyAds(){
     const navigation = useNavigation<AppStackNavigatorRoutesProps>();
 
     function handleCreateAd(){
-        console.log('Add');
+        navigation.navigate("CreateAd");
+        return true;
     }
 
     function handleOpenExercise() {

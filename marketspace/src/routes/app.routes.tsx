@@ -14,10 +14,12 @@ import { TouchableOpacity } from "react-native";
 import { useAuth } from "@hooks/useAuth";
 import { Ad } from "@screens/Ad";
 import { config } from "config/gluestack-ui.config";
+import { NewAd } from "@screens/NewAd";
 
 type AppRoutesProps = {
     Home: undefined,
     Ad: undefined,
+    NewAd: undefined,
     MyAds: undefined,
     Exit: undefined
 }
@@ -25,6 +27,7 @@ type AppRoutesProps = {
 type StackAppRoutes = {
 	Main: undefined;
 	DetailsAd: undefined;
+    CreateAd: undefined;
 };
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutesProps>;
@@ -92,6 +95,16 @@ function TabRoutes(){
                         tabBarButton: () => null
                     }} 
             />
+
+            <Screen name="NewAd" 
+                    component={NewAd}
+                    options={{
+                        tabBarStyle:{
+                            display: "none"
+                        },
+                        tabBarButton: () => null
+                    }} 
+            />
             
 
         </Navigator>
@@ -103,6 +116,7 @@ export function AppRoutes() {
 		<Stack.Navigator screenOptions={{ headerShown: false }}>
 			<Stack.Screen name="Main" component={TabRoutes} />
 			<Stack.Screen name="DetailsAd" component={Ad} />
+			<Stack.Screen name="CreateAd" component={NewAd} />
 		</Stack.Navigator>
 	);
 }

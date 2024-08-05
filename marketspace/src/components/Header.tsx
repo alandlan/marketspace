@@ -3,9 +3,17 @@ import { ButtonCustom } from "./ButtonCustom";
 import { ImageUser } from "./ImageUser";
 import { useAuth } from "@hooks/useAuth";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { AppNavigatorRoutesProps } from "@routes/app.routes";
+import { useNavigation } from "@react-navigation/native";
 
 export function Header(){
     const { user } = useAuth();
+
+    const navigation = useNavigation<AppNavigatorRoutesProps>();
+
+    function handleCreatAd() {
+        navigation.navigate("NewAd");
+    }
 
     return (
         <SafeAreaView>
@@ -25,6 +33,7 @@ export function Header(){
                         title="Criar Produto"
                         variant="tertiary"
                         icon={AddIcon}
+                        onPress={() => handleCreatAd()}
                     />
                 </HStack>
                 
