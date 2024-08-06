@@ -28,14 +28,14 @@ export function Ad(){
 
     return (
         <View flex={1} p={20}>
-            <View h={30} mt={30} mb={10}>
+            <View h={30} mt={30}>
                 <Pressable onPress={() => { handleGoBack() }}>
                     <ArrowLeft />
                 </Pressable>
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View w="$full" my={10}>
+                <View w="$full">
                     <CarouselProducts   images={images} />
                 </View>
 
