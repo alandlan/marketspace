@@ -1,15 +1,25 @@
 import { Badge } from "@components/Badge";
 import { ButtonCustom } from "@components/ButtonCustom";
+import { CarouselProducts } from "@components/CarouselProducts";
 import { ImageUser } from "@components/ImageUser";
 import { Heading, HStack, Image, Pressable, ScrollView, Text, View, VStack } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
 import { AppStackNavigatorRoutesProps } from "@routes/app.routes";
 import { ArrowLeft, Barcode, CreditCard, Money, QrCode, WhatsappLogo } from "phosphor-react-native";
+import { Dimensions } from "react-native";
+import Carousel from "react-native-reanimated-carousel";
 
 
 
 export function Ad(){
     const navigation = useNavigation<AppStackNavigatorRoutesProps>();
+    
+
+    const images = [
+        "https://img.ltwebstatic.com/images3_spmp/2024/03/13/12/1710336855e00ee01f326c34559817944d8e1a905d_thumbnail_720x.jpg",
+        "https://img.ltwebstatic.com/images3_spmp/2024/03/13/12/1710336855e00ee01f326c34559817944d8e1a905d_thumbnail_720x.jpg",
+        "https://img.ltwebstatic.com/images3_spmp/2024/03/13/12/1710336855e00ee01f326c34559817944d8e1a905d_thumbnail_720x.jpg"
+    ]
 
     function handleGoBack() {
 
@@ -26,14 +36,7 @@ export function Ad(){
 
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View w="$full" my={10}>
-                    <Image 
-                        source={{uri: "https://img.ltwebstatic.com/images3_spmp/2024/03/13/12/1710336855e00ee01f326c34559817944d8e1a905d_thumbnail_720x.jpg"}}
-                        // resizeMode="cover"
-                        w="$full"
-                        h={300}
-                        alt="Product"
-                        borderRadius={10}
-                    />
+                    <CarouselProducts   images={images} />
                 </View>
 
                 <HStack alignItems="center" my={10} gap={5}>
