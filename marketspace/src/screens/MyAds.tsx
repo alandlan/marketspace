@@ -28,10 +28,11 @@ export function MyAds(){
             </View>
             <HStack justifyContent='space-between' alignItems='center' mb={15}>
                 <Text>3 anúncios</Text>
-                <Select>
+                <Select 
+                    w={150} >
                     <SelectTrigger variant="rounded" size="sm">
                         <SelectInput placeholder="Select option" />
-                        <SelectIcon>
+                        <SelectIcon mr={"$3"}>
                             <Icon as={ChevronDownIcon} />
                         </SelectIcon>
                     </SelectTrigger>
