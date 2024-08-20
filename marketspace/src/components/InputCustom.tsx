@@ -5,7 +5,7 @@ import { TextInputProps } from 'react-native';
 export interface InputCustomProps extends TextInputProps {
     placeholder: string;
     type?: "text" | "password";
-    keyboardType?: "default" | "email-address" | "phone-pad";
+    keyboardType?: "default" | "email-address" | "phone-pad" | "numeric";
 }
 
 export function InputCustom({ placeholder, type = "text", keyboardType = "default",...rest }: InputCustomProps) {
@@ -23,7 +23,6 @@ export function InputCustom({ placeholder, type = "text", keyboardType = "defaul
             <Input
               bg={'$white'}
               h={52}
-              px={16}
               mb={16}
               borderRadius={8}
               borderWidth={0}
@@ -40,7 +39,7 @@ export function InputCustom({ placeholder, type = "text", keyboardType = "defaul
                     {...rest}
                 />
                 {type === "password" && (
-                    <InputSlot onPress={handleState}>
+                    <InputSlot mr={10} onPress={handleState}>
                         <InputIcon as={showPassword ? EyeIcon : EyeOffIcon} />
                     </InputSlot>
                 )}
