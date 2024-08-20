@@ -49,7 +49,7 @@ export function Ad(){
                 </View>
 
                 <HStack justifyContent="space-between" my={5}>
-                    <Heading fontSize={18}>Tênis Vermelho</Heading>
+                    <Heading fontSize={18} color={"$trueGray600"}>Tênis Vermelho</Heading>
                     <Heading fontSize={14} color={"$produtoBlue"}>
                         R$
                         <Heading fontSize={18} color={"$produtoBlue"}>
@@ -63,27 +63,27 @@ export function Ad(){
                 </View>
 
                 <HStack alignItems="center" gap={5}>
-                    <Heading fontSize={16}>Aceita troca?</Heading>
-                    <Text>Sim</Text>
+                    <Heading fontSize={16} color={"$trueGray600"}>Aceita troca?</Heading>
+                    <Text fontSize={14}>Sim</Text>
                 </HStack>
 
                 <VStack my={5}>
-                    <Heading fontSize={16}>Meios de pagamento</Heading>
+                    <Heading fontSize={16} color={"$trueGray600"}>Meios de pagamento</Heading>
                     <HStack gap={5} mb={5}>
                         <Barcode />
-                        <Text>Boleto</Text>
+                        <Text fontSize={14}>Boleto</Text>
                     </HStack>
                     <HStack gap={5} mb={5}>
                         <QrCode />
-                        <Text>Pix</Text>
+                        <Text fontSize={14}>Pix</Text>
                     </HStack>
                     <HStack gap={5} mb={5}>
                         <Money />
-                        <Text>Dinheiro</Text>
+                        <Text fontSize={14}>Dinheiro</Text>
                     </HStack>
                     <HStack gap={5} mb={5}>
                         <CreditCard />
-                        <Text>Cartão</Text>
+                        <Text fontSize={14}>Cartão</Text>
                     </HStack>
                 </VStack>
 
