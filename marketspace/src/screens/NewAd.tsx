@@ -111,30 +111,36 @@ export function NewAd(){
                         setWaysToPay(keys)
                     }}
                 >                
-                    <VStack space="sm">
-                        <Checkbox aria-label="boleto" value="Boleto">
+                    <VStack gap={10} space="md">
+                        <Checkbox aria-label="boleto" value="Boleto" >
                             <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
-                                <CheckboxIcon as={CheckIcon} color="#fff"/>
+                                <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
                             </CheckboxIndicator>
-                            <CheckboxLabel>Boleto</CheckboxLabel>
+                            <CheckboxLabel aria-label="boleto">Boleto</CheckboxLabel>
                         </Checkbox>
-                        <Checkbox aria-label="pix"  value="Pix">
+                        <Checkbox aria-label="pix" value="Pix">
                             <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
-                                <CheckboxIcon as={CheckIcon} color="#fff"/>
+                                <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
                             </CheckboxIndicator>
-                            <CheckboxLabel>Pix</CheckboxLabel>
+                            <CheckboxLabel aria-label="pix">Pix</CheckboxLabel>
                         </Checkbox>
                         <Checkbox aria-label="dinheiro" value="Dinheiro">
                             <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
-                                <CheckboxIcon as={CheckIcon} color="#fff"/>
+                                <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
                             </CheckboxIndicator>
-                            <CheckboxLabel>Dinheiro</CheckboxLabel>
+                            <CheckboxLabel aria-label="dinheiro">Dinheiro</CheckboxLabel>
                         </Checkbox>
-                        <Checkbox aria-label="cartao" value="Cartão">
+                        <Checkbox aria-label="cartao de credito" value="Cartão de Crédito">
                             <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
-                                <CheckboxIcon as={CheckIcon} color="#fff"/>
+                                <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
                             </CheckboxIndicator>
-                            <CheckboxLabel>Cartão</CheckboxLabel>
+                            <CheckboxLabel>Cartão de Crédito</CheckboxLabel>
+                        </Checkbox>
+                        <Checkbox aria-label="cartao de debito" value="Cartão de Débito">
+                            <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
+                                <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
+                            </CheckboxIndicator>
+                            <CheckboxLabel>Cartão de Débito</CheckboxLabel>
                         </Checkbox>
                     </VStack>
                 </CheckboxGroup>

@@ -130,31 +130,31 @@ export function InputSearch(){
                         <CheckboxGroup value={newFilter.pagamento} onChange={(keys) => handleFilterPayment(keys)} mb={40}>
                             <VStack gap={10} space="md">
                                 <Checkbox aria-label="boleto" value="Boleto" >
-                                    <CheckboxIndicator mr="$2">
+                                    <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
                                         <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
                                     </CheckboxIndicator>
                                     <CheckboxLabel aria-label="boleto">Boleto</CheckboxLabel>
                                 </Checkbox>
                                 <Checkbox aria-label="pix" value="Pix">
-                                    <CheckboxIndicator mr="$2">
+                                    <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
                                         <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
                                     </CheckboxIndicator>
                                     <CheckboxLabel aria-label="pix">Pix</CheckboxLabel>
                                 </Checkbox>
                                 <Checkbox aria-label="dinheiro" value="Dinheiro">
-                                    <CheckboxIndicator mr="$2">
+                                    <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
                                         <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
                                     </CheckboxIndicator>
                                     <CheckboxLabel aria-label="dinheiro">Dinheiro</CheckboxLabel>
                                 </Checkbox>
                                 <Checkbox aria-label="cartao de credito" value="Cartão de Crédito">
-                                    <CheckboxIndicator mr="$2">
+                                    <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
                                         <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
                                     </CheckboxIndicator>
                                     <CheckboxLabel>Cartão de Crédito</CheckboxLabel>
                                 </Checkbox>
                                 <Checkbox aria-label="cartao de debito" value="Cartão de Débito">
-                                    <CheckboxIndicator mr="$2">
+                                    <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
                                         <CheckboxIcon as={CheckIcon} color="$white" $checked-bg="$produtoBlue"/>
                                     </CheckboxIndicator>
                                     <CheckboxLabel>Cartão de Débito</CheckboxLabel>
