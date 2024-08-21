@@ -1,14 +1,17 @@
 import { InputCustom } from "@components/InputCustom";
-import { Radio,RadioIndicator,RadioIcon,RadioLabel,CircleIcon, Heading, HStack, Pressable, Text, View, Image, Button, FormControl,Input, InputField, RadioGroup, useTheme } from "@gluestack-ui/themed"
+import { CheckboxGroup,Checkbox,CheckboxIndicator,CheckboxLabel,CheckIcon,CheckboxIcon,Radio,RadioIndicator,RadioIcon,RadioLabel,CircleIcon, Heading, HStack, Pressable, Text, View, Image, Button, FormControl,Input, InputField, RadioGroup, useTheme, VStack } from "@gluestack-ui/themed"
 import { useNavigation } from "@react-navigation/native";
 import { AppStackNavigatorRoutesProps } from "@routes/app.routes";
 import { ArrowLeft, Plus,Barcode, CreditCard, Money, QrCode, WhatsappLogo } from "phosphor-react-native"
 import { ScrollView } from "react-native-gesture-handler";
 import { useState } from "react";
+import { ButtonCustom } from "@components/ButtonCustom";
 
 
 export function NewAd(){
-    const [values, setValues] = useState("new")
+    const [productState, setProductState] = useState("new")
+    const [waysToPay, setWaysToPay] = useState<string[]>([]);
+
     const navigation = useNavigation<AppStackNavigatorRoutesProps>();
 
     const theme = useTheme();
@@ -80,7 +83,7 @@ export function NewAd(){
                     </Input>
                 </FormControl>
 
-                <RadioGroup my={20} value={values} onChange={setValues}>
+                <RadioGroup my={20} value={productState} onChange={setProductState}>
                     <HStack alignItems="center" gap={10}>
                         <Radio value="new" >
                             <RadioIndicator mr="$2" borderColor="$produtoBlueLight">
@@ -101,21 +104,48 @@ export function NewAd(){
                 <InputCustom placeholder="Valor do Produto" keyboardType="numeric" />
 
                 <Heading mt={10} fontSize={16} color={"$trueGray600"}>Meios de pagamento aceitos</Heading>
-                <HStack gap={5} mb={5}>
-                    <Barcode />
-                    <Text fontSize={14}>Boleto</Text>
-                </HStack>
-                <HStack gap={5} mb={5}>
-                    <QrCode />
-                    <Text fontSize={14}>Pix</Text>
-                </HStack>
-                <HStack gap={5} mb={5}>
-                    <Money />
-                    <Text fontSize={14}>Dinheiro</Text>
-                </HStack>
-                <HStack gap={5} mb={5}>
-                    <CreditCard />
-                    <Text fontSize={14}>Cartão</Text>
+                
+                <CheckboxGroup
+                    value={waysToPay}
+                    onChange={(keys) => {
+                        setWaysToPay(keys)
+                    }}
+                >                
+                    <VStack space="sm">
+                        <Checkbox aria-label="boleto" value="Boleto">
+                            <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
+                                <CheckboxIcon as={CheckIcon} color="#fff"/>
+                            </CheckboxIndicator>
+                            <CheckboxLabel>Boleto</CheckboxLabel>
+                        </Checkbox>
+                        <Checkbox aria-label="pix"  value="Pix">
+                            <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
+                                <CheckboxIcon as={CheckIcon} color="#fff"/>
+                            </CheckboxIndicator>
+                            <CheckboxLabel>Pix</CheckboxLabel>
+                        </Checkbox>
+                        <Checkbox aria-label="dinheiro" value="Dinheiro">
+                            <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
+                                <CheckboxIcon as={CheckIcon} color="#fff"/>
+                            </CheckboxIndicator>
+                            <CheckboxLabel>Dinheiro</CheckboxLabel>
+                        </Checkbox>
+                        <Checkbox aria-label="cartao" value="Cartão">
+                            <CheckboxIndicator mr="$2" $checked-bgColor="$produtoBlueLight" borderColor="$produtoBlueLight">
+                                <CheckboxIcon as={CheckIcon} color="#fff"/>
+                            </CheckboxIndicator>
+                            <CheckboxLabel>Cartão</CheckboxLabel>
+                        </Checkbox>
+                    </VStack>
+                </CheckboxGroup>
+
+                <HStack gap={10} mt={20}>
+                    <View flex={1}>
+                        <ButtonCustom variant="secondary" title="Cancelar" />
+                    </View>
+                    <View flex={1}>
+                        <ButtonCustom variant="tertiary" title="Avançar"/>
+                    </View>
                 </HStack>
 
             </ScrollView>
