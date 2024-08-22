@@ -6,6 +6,7 @@ import { ArrowLeft, Plus,Barcode, CreditCard, Money, QrCode, WhatsappLogo } from
 import { ScrollView } from "react-native-gesture-handler";
 import { useState } from "react";
 import { ButtonCustom } from "@components/ButtonCustom";
+import * as ImagePicker from 'expo-image-picker';
 
 
 export function NewAd(){
@@ -18,6 +19,27 @@ export function NewAd(){
 
     function handleGoBack() {
         navigation.goBack();
+    }
+
+    function handleNext() {
+        navigation.navigate('DetailsAd');
+    }
+
+    async function handleUserPhotoSelect(){
+        const photoSelected = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4,4],
+            quality: 1,
+        });
+
+        if(photoSelected.canceled){
+            return;
+        }
+
+        const photo = photoSelected.assets[0];
+
+        console.log(photo);
     }
 
     return (
@@ -53,7 +75,7 @@ export function NewAd(){
                         h={88}
                         ml={2}
                         mb={6}
-                        onPress={() => console.log('foto adicionada')}
+                        onPress={() => handleUserPhotoSelect()}
                     >
                         <Plus color="$trueGray600" />
                     </Button>
@@ -150,7 +172,7 @@ export function NewAd(){
                         <ButtonCustom variant="secondary" title="Cancelar" />
                     </View>
                     <View flex={1}>
-                        <ButtonCustom variant="tertiary" title="Avançar"/>
+                        <ButtonCustom variant="tertiary" title="Avançar" onPress={() => handleNext()}/>
                     </View>
                 </HStack>
 
